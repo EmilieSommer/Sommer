@@ -1,0 +1,89 @@
+.side-nav {
+  position: fixed;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+.side-nav__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-3);
+  position: relative;
+}
+
+/* Line lives inside the list, anchored to the dot column */
+.side-nav__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* 4px button padding + half of 18px dot (9px) = 13px from right */
+  right: 13px;
+  width: 1px;
+  background: var(--color-primary);
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.side-nav__item {
+  position: relative;
+  z-index: 1;
+}
+
+.side-nav__dot {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px;
+}
+
+.side-nav__dot-inner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  background: var(--color-bg); /* fills dot so line appears behind it */
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s var(--ease-snap);
+}
+
+/* Active state */
+.side-nav__dot--active .side-nav__dot-inner {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.side-nav__dot:hover:not(.side-nav__dot--active) .side-nav__dot-inner {
+  transform: scale(1.15);
+}
+
+/* Label */
+.side-nav__label {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(4px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+
+.side-nav__dot:hover .side-nav__label,
+.side-nav__dot--active .side-nav__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .side-nav { right: var(--space-2); }
+  .side-nav__label { display: none; }
+}

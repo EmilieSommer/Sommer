@@ -1,0 +1,93 @@
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: 100;
+  pointer-events: all;
+}
+
+.skip-btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-4);
+  background: none;
+  border: 1px solid var(--color-brown);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius);
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s, color 0.2s;
+}
+
+.skip-btn:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+
+/* Figma-style text boxes */
+.intro-textbox {
+  position: absolute;
+  border: 2px solid #1a73e8; /* Figma selection blue */
+  background: transparent;
+  padding: var(--space-1) var(--space-2);
+  min-width: 12ch;
+}
+
+.intro-textbox--main {
+  top: 38vh;
+  left: 42vw;
+}
+
+.intro-textbox--sub {
+  top: 46vh;
+  left: 38vw;
+  min-width: 28ch;
+}
+
+/* Resize handles — Figma style */
+.intro-textbox::before,
+.intro-textbox::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: white;
+  border: 1.5px solid #1a73e8;
+  border-radius: 1px;
+}
+.intro-textbox::before { top: -4px; left: -4px; }
+.intro-textbox::after  { bottom: -4px; right: -4px; }
+
+.intro-main-text {
+  font-family: var(--font-display);
+  font-size: var(--size-5xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.intro-sub-text {
+  font-family: var(--font-body);
+  font-size: var(--size-lg);
+  font-weight: 400;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.intro-cursor-blink {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-primary);
+  animation: blink 0.8s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

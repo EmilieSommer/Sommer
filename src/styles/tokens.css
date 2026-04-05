@@ -1,0 +1,49 @@
+:root {
+  /* Colors */
+  --color-bg:         #F2F0EF;
+  --color-text:       #1E1E20;
+
+  --color-primary:    #D95122;
+  --color-primary-dark: #BD4B26;
+
+  --color-sage:       #B6CFB9;
+  --color-amber:      #EAB05C;
+  --color-peach:      #FFCB7F;
+
+  --color-brown:      #896645;
+  --color-brown-dark: #715438;
+
+  --color-white:      #FFFFFF;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Poppins', system-ui, sans-serif;
+
+  --size-xs:   0.75rem;   /* 12px */
+  --size-sm:   0.875rem;  /* 14px */
+  --size-base: 1rem;      /* 16px */
+  --size-lg:   1.25rem;   /* 20px */
+  --size-xl:   1.5rem;    /* 24px */
+  --size-2xl:  2rem;      /* 32px */
+  --size-3xl:  3rem;      /* 48px */
+  --size-4xl:  4.5rem;    /* 72px */
+  --size-5xl:  6rem;      /* 96px */
+
+  /* Spacing (8px base) */
+  --space-1:  0.5rem;   /* 8px */
+  --space-2:  1rem;     /* 16px */
+  --space-3:  1.5rem;   /* 24px */
+  --space-4:  2rem;     /* 32px */
+  --space-6:  3rem;     /* 48px */
+  --space-8:  4rem;     /* 64px */
+  --space-12: 6rem;     /* 96px */
+  --space-16: 8rem;     /* 128px */
+
+  /* Layout */
+  --max-width: 1200px;
+  --radius:    2px;
+
+  /* Animation */
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

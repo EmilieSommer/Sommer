@@ -1,0 +1,81 @@
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+/* Alternating layout — matches your Figma design */
+.project-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.project-item--right {
+  direction: rtl;
+}
+.project-item--right > * {
+  direction: ltr;
+}
+
+.project-item__media {
+  position: relative;
+}
+
+.project-item__image-placeholder {
+  background: var(--color-primary);
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  width: 100%;
+}
+
+.project-item__video {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.published-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 600;
+  color: var(--color-bg);
+  background: var(--color-primary-dark);
+  padding: 3px var(--space-2);
+  border-radius: 20px;
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-item__title {
+  font-family: var(--font-display);
+  font-size: var(--size-3xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.project-item__desc {
+  font-size: var(--size-base);
+  line-height: 1.7;
+  color: var(--color-brown);
+  margin-bottom: var(--space-4);
+}
+
+.project-item__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+@media (max-width: 768px) {
+  .project-item,
+  .project-item--right {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+}

@@ -1,0 +1,80 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.portrait-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--color-primary);
+  border-radius: var(--radius);
+}
+
+.about-bio {
+  font-size: var(--size-lg);
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+/* Tools section */
+.about-tools__heading {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 600;
+  color: var(--color-brown);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.tools-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2) var(--space-8);
+  max-width: 560px;
+}
+
+.tool-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.tool-row__name {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.tool-row__dots {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.tool-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  background: transparent;
+}
+
+.tool-dot--filled {
+  background: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .portrait-placeholder {
+    max-width: 260px;
+  }
+}
