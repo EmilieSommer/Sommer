@@ -35,8 +35,8 @@
 .exp-desc {
   font-family: var(--font-body);
   font-size: var(--size-base);
-  line-height: 1.8;
-  color: var(--color-brown);
+  line-height: 1.75;
+  color: var(--color-text);
   max-width: 680px;
   margin-bottom: var(--space-4);
 }
