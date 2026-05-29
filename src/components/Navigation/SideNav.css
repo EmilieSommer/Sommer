@@ -15,20 +15,6 @@
   position: relative;
 }
 
-/* Line lives inside the list, anchored to the dot column */
-.side-nav__line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  /* 4px button padding + half of 18px dot (9px) = 13px from right */
-  right: 13px;
-  width: 1px;
-  background: var(--color-primary);
-  opacity: 0.4;
-  z-index: 0;
-  pointer-events: none;
-}
-
 .side-nav__item {
   position: relative;
   z-index: 1;

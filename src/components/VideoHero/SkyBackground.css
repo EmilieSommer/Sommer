@@ -1,0 +1,52 @@
+.sky-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.sky-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sky-clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ── Individual cloud ───────────────────────────────────────── */
+.cloud {
+  position: absolute;
+  left: -460px;
+  width: 400px;
+  height: 130px;
+  transform-origin: left center;
+}
+
+/* Blobs form the cloud silhouette */
+.cloud__blob {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.cloud__blob--1 { width: 170px; height: 95px;  bottom: 0;    left: 110px; }
+.cloud__blob--2 { width: 130px; height: 105px; bottom: 22px; left: 65px;  }
+.cloud__blob--3 { width: 150px; height: 115px; bottom: 18px; left: 170px; }
+.cloud__blob--4 { width: 110px; height: 85px;  bottom: 6px;  left: 22px;  }
+.cloud__blob--5 { width: 120px; height: 80px;  bottom: 6px;  left: 265px; }
+
+/* ── Drift keyframes ─────────────────────────────────────────── */
+@keyframes drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 520px)); }
+}
+
+.cloud--back  { animation: drift 160s linear infinite; opacity: 0.65; }
+.cloud--mid   { animation: drift 110s linear infinite; opacity: 0.78; }
+.cloud--front { animation: drift  75s linear infinite; opacity: 0.88; }

@@ -1,6 +1,6 @@
 .about-grid {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: var(--space-12);
   align-items: start;
 }
@@ -10,39 +10,91 @@
   aspect-ratio: 3 / 4;
   background: var(--color-primary);
   border-radius: var(--radius);
+  position: sticky;
+  top: var(--space-8);
 }
 
 .about-bio {
-  font-size: var(--size-lg);
-  line-height: 1.7;
+  font-size: var(--size-base);
+  line-height: 1.8;
   color: var(--color-text);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
-/* Tools section */
-.about-tools__heading {
+/* Accordion group */
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(137, 102, 69, 0.2);
+}
+
+.accordion {
+  border-bottom: 1px solid rgba(137, 102, 69, 0.2);
+}
+
+.accordion__trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) 0;
+  text-align: left;
+}
+
+.accordion__title {
   font-family: var(--font-body);
-  font-size: var(--size-xs);
+  font-size: var(--size-sm);
   font-weight: 600;
-  color: var(--color-brown);
-  letter-spacing: 0.1em;
+  color: var(--color-text);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: var(--space-3);
 }
 
+.accordion__icon {
+  font-size: var(--size-lg);
+  color: var(--color-primary);
+  font-weight: 300;
+  line-height: 1;
+  transition: transform 0.25s var(--ease-out);
+}
+
+/* Collapse/expand with CSS grid trick — no JS height calculation needed */
+.accordion__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s var(--ease-out);
+}
+
+.accordion--open .accordion__body {
+  grid-template-rows: 1fr;
+}
+
+.accordion__content {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom 0.3s var(--ease-out);
+}
+
+.accordion--open .accordion__content {
+  padding-bottom: var(--space-4);
+}
+
+/* Tools */
 .tools-list {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-2) var(--space-8);
-  max-width: 560px;
 }
 
 .tool-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .tool-row__name {
@@ -54,13 +106,13 @@
 
 .tool-row__dots {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   flex-shrink: 0;
 }
 
 .tool-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   border: 1.5px solid var(--color-primary);
   background: transparent;
@@ -70,11 +122,103 @@
   background: var(--color-primary);
 }
 
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-6);
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.skill-category__name {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.skill-category__desc {
+  font-size: var(--size-xs);
+  line-height: 1.6;
+  color: var(--color-brown);
+  margin-bottom: var(--space-1);
+}
+
+.skill-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.skill-tag {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  color: var(--color-brown-dark);
+  background: var(--color-peach);
+  padding: 3px var(--space-2);
+  border-radius: 20px;
+}
+
+/* Education */
+.education-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.education-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: 2px;
+}
+
+.education-item__school {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.education-item__period {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  color: var(--color-brown);
+  white-space: nowrap;
+}
+
+.education-item__degree {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.education-item__desc {
+  font-size: var(--size-xs);
+  line-height: 1.6;
+  color: var(--color-brown);
+}
+
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
   }
   .portrait-placeholder {
-    max-width: 260px;
+    max-width: 220px;
+    position: static;
+  }
+  .tools-list {
+    grid-template-columns: 1fr;
   }
 }

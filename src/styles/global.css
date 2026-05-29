@@ -6,6 +6,11 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: none;
+}
+
+a, button, [role="button"] {
+  cursor: none;
 }
 
 body {

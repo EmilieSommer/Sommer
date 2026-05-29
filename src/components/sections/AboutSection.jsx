@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import useReveal from '../../hooks/useReveal'
 import './Section.css'
 import './AboutSection.css'
 
@@ -37,15 +38,26 @@ const EDUCATION = [
 ]
 
 const SKILLS = [
-  'Interaction design',
-  'UX research',
-  'Usability testing',
-  'Wireframing & prototyping',
-  'Design systems',
-  'Visual design',
-  'Concept development',
-  'Illustration',
-  '3D modelling',
+  {
+    category: 'UX & Interaction',
+    items: ['Interaction design', 'User research', 'Usability testing', 'Wireframing', 'Prototyping'],
+    description: 'Designing with the user in mind — from early research and testing to refined, intuitive interactions.',
+  },
+  {
+    category: 'Visual Design',
+    items: ['UI design', 'Design systems', 'Typography', 'Visual identity', 'Illustration'],
+    description: 'Creating coherent visual experiences with a strong eye for hierarchy, colour, and detail.',
+  },
+  {
+    category: '3D & Spatial',
+    items: ['3D modelling', 'Sculpting', 'Architectural design', 'Game environments'],
+    description: 'Building in three dimensions — from digital sculpting in Nomad to environments in Blender and Unity.',
+  },
+  {
+    category: 'Concept & Strategy',
+    items: ['Concept development', 'Ideation', 'Design thinking', 'Sustainability design'],
+    description: 'Developing ideas from brief to concept — with a focus on purpose, context, and the bigger picture.',
+  },
 ]
 
 const MAX = 5
@@ -81,11 +93,14 @@ function Accordion({ title, children, defaultOpen = false }) {
 }
 
 export default function AboutSection() {
+  const sectionRef = useRef(null)
+  useReveal(sectionRef)
+
   return (
-    <section className="content-section" id="about">
+    <section ref={sectionRef} className="content-section" id="about">
       <div className="section__inner">
-        <span className="section__eyebrow">01 — About</span>
-        <div className="about-grid">
+        <span className="section__eyebrow r">01 — About</span>
+        <div className="about-grid r">
 
           <div className="about-portrait">
             {/* Replace with <img src="..." alt="Emilie Sommer" /> */}
@@ -95,9 +110,11 @@ export default function AboutSection() {
           <div className="about-text">
             <h2 className="section__heading">About me</h2>
             <p className="about-bio">
-              I'm a designer and Medialogi student with a passion for the space where people and technology meet.
-              Whether I'm designing interfaces, developing games, or exploring new concepts,
-              I bring optimism, curiosity, and a drive to create things that leave a real impression.
+              Hi! I'm Emilie — a designer and Medialogi student based in Copenhagen.
+              I love making things: interfaces, games, posters, the occasional 3D world.
+              Some of it ends up on a Nykredit billboard, some of it gets played at a festival,
+              some of it just lives in my notebook. I'm endlessly curious, easy to work with,
+              and happiest when a project leaves the people who use it a little better off than before.
             </p>
 
             <div className="accordion-group">
@@ -111,11 +128,19 @@ export default function AboutSection() {
               </Accordion>
 
               <Accordion title="Skills">
-                <ul className="skills-list">
+                <div className="skills-grid">
                   {SKILLS.map((skill) => (
-                    <li key={skill} className="skill-tag">{skill}</li>
+                    <div key={skill.category} className="skill-category">
+                      <span className="skill-category__name">{skill.category}</span>
+                      <p className="skill-category__desc">{skill.description}</p>
+                      <ul className="skill-tags">
+                        {skill.items.map((item) => (
+                          <li key={item} className="skill-tag">{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </Accordion>
 
               <Accordion title="Education">

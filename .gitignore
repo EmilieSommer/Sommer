@@ -1,3 +1,10 @@
 node_modules
 dist
 .DS_Store
+
+# Local source/working files — too large for git, not needed to build the site
+Portfolio_Materials/
+PDF document*.pdf
+
+# Claude Code local settings
+.claude/settings.local.json

@@ -1,24 +1,90 @@
+/* ── Masonry grid via CSS columns ─────────────────────────────── */
 .personal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-6);
+  columns: 3;
+  column-gap: var(--space-3);
+  margin-top: var(--space-4);
 }
 
-.personal-card__image {
+@media (max-width: 900px) {
+  .personal-grid { columns: 2; }
+}
+
+@media (max-width: 560px) {
+  .personal-grid { columns: 1; }
+}
+
+/* ── Card ─────────────────────────────────────────────────────── */
+.personal-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 var(--space-3) 0;
+  padding: 0;
+  border: none;
   background: var(--color-peach);
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius);
-  margin-bottom: var(--space-3);
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2px;
+  break-inside: avoid;
+  box-shadow: 0 2px 12px rgba(30, 30, 32, 0.06);
+  transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.personal-card:hover {
+  box-shadow: 0 10px 32px rgba(30, 30, 32, 0.14);
+  transform: translateY(-2px);
+}
+
+.personal-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.personal-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Hover overlay ────────────────────────────────────────────── */
+.personal-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
+  padding: var(--space-3);
+  background: linear-gradient(
+    to top,
+    rgba(20, 18, 14, 0.78) 0%,
+    rgba(20, 18, 14, 0.35) 45%,
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-align: left;
+}
+
+.personal-card:hover .personal-card__overlay,
+.personal-card:focus-visible .personal-card__overlay {
+  opacity: 1;
+}
+
+.personal-card__category {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-sage);
 }
 
 .personal-card__title {
   font-family: var(--font-display);
   font-size: var(--size-xl);
-  margin-bottom: var(--space-1);
-}
-
-.personal-card__desc {
-  font-size: var(--size-sm);
-  color: var(--color-brown);
-  line-height: 1.6;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #F2F0EF;
 }

@@ -1,81 +1,319 @@
-.projects-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-16);
-}
-
-/* Alternating layout — matches your Figma design */
-.project-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
-  align-items: center;
-}
-
-.project-item--right {
-  direction: rtl;
-}
-.project-item--right > * {
-  direction: ltr;
-}
-
-.project-item__media {
-  position: relative;
-}
-
-.project-item__image-placeholder {
-  background: var(--color-primary);
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius);
+/* ── Gallery card overrides (uses .nk-gallery classes for layout) ── */
+.proj-gallery__card {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
   width: 100%;
+  display: block;
 }
 
-.project-item__video {
-  width: 100%;
-  aspect-ratio: 4 / 5;
+/* Project cards are taller than Nykredit slides — more dramatic presence */
+.proj-gallery__card .nk-gallery__frame {
+  height: 220px;
+}
+
+.proj-gallery__card:hover .nk-gallery__frame {
+  height: calc(100vw / 2.0);
+}
+
+@media (max-width: 768px) {
+  .proj-gallery__card .nk-gallery__frame { height: 140px; }
+  .proj-gallery__card:hover .nk-gallery__frame { height: 280px; }
+}
+
+/* Video / color-bg fills the frame so collapsed view shows a clean strip */
+.proj-gallery__bg {
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
-  border-radius: var(--radius);
 }
 
-.published-badge {
-  display: inline-block;
+/* Colored accent bar — project's identity color, always visible */
+.proj-gallery__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--proj-accent, var(--color-primary));
+  z-index: 3;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.proj-gallery__card:hover .proj-gallery__accent {
+  width: 10px;
+}
+
+/* Hover overlay — dark gradient with project info on the left */
+.proj-gallery__slide {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(28px, 4vw, 64px) 0 clamp(40px, 5vw, 80px);
+  background: linear-gradient(
+    to right,
+    rgba(10, 8, 5, 0.88) 0%,
+    rgba(10, 8, 5, 0.6)  45%,
+    rgba(10, 8, 5, 0.15) 80%,
+    transparent          100%
+  );
+}
+
+/* Small "Project 0X" eyebrow in the accent color */
+.proj-gallery__index {
+  display: block;
   font-family: var(--font-body);
   font-size: var(--size-xs);
   font-weight: 600;
-  color: var(--color-bg);
-  background: var(--color-primary-dark);
-  padding: 3px var(--space-2);
-  border-radius: 20px;
-  margin-bottom: var(--space-3);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--proj-accent, var(--color-primary));
+  margin-bottom: clamp(8px, 0.8vw, 12px);
+  filter: brightness(1.4) saturate(1.1);
 }
 
-.project-item__title {
+.proj-gallery__info {
+  flex: 0 0 60%;
+  max-width: 620px;
+  color: #F2F0EF;
+}
+
+.proj-gallery__title {
   font-family: var(--font-display);
-  font-size: var(--size-3xl);
-  color: var(--color-text);
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: clamp(10px, 1.2vw, 18px);
+}
+
+.proj-gallery__desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 0.88vw, 0.95rem);
+  line-height: 1.6;
+  opacity: 0.82;
+  margin-bottom: clamp(10px, 1.2vw, 18px);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.proj-gallery__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.proj-gallery__tag {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  color: rgba(242, 240, 239, 0.95);
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+.proj-gallery__cta {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 500;
+  color: #F2F0EF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  flex-shrink: 0;
+  border-bottom: 2px solid var(--proj-accent, var(--color-primary));
+  padding-bottom: 4px;
+  filter: brightness(1.1);
+}
+
+/* Caption — projects use the accent color for the index number */
+.proj-gallery__caption .nk-gallery__num {
+  color: var(--proj-accent, var(--color-primary));
+  filter: brightness(1.5) saturate(1.2);
+  font-weight: 700;
+}
+
+/* ── Full-screen overlay (unchanged) ─────────────────────────── */
+.project-fs {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  overflow-y: auto;
+  scrollbar-width: none;
+  animation: fs-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.project-fs::-webkit-scrollbar { display: none; }
+
+@keyframes fs-in {
+  from { opacity: 0; transform: scale(1.03); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.project-fs__hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.project-fs__spacer { height: 80px; }
+
+.project-fs__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-fs__colorbg { position: absolute; inset: 0; }
+
+.project-fs__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 8, 5, 0.92) 0%,
+    rgba(10, 8, 5, 0.3)  50%,
+    transparent          100%
+  );
+  pointer-events: none;
+}
+
+.project-fs__controls {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  z-index: 2;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.project-fs__sound,
+.project-fs__exit {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  color: #F2F0EF;
+  font-size: var(--size-base);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.project-fs__sound:hover,
+.project-fs__exit:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.project-fs__layout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-6);
+  align-items: end;
+  padding: var(--space-8);
+}
+
+.project-fs__title {
+  font-family: var(--font-display);
+  font-size: var(--size-4xl);
+  color: #F2F0EF;
   margin-bottom: var(--space-3);
 }
 
-.project-item__desc {
+.project-fs__desc {
   font-size: var(--size-base);
-  line-height: 1.7;
-  color: var(--color-brown);
-  margin-bottom: var(--space-4);
+  line-height: 1.75;
+  color: rgba(242, 240, 239, 0.85);
+  margin-bottom: var(--space-3);
 }
 
-.project-item__tags {
+.project-fs__tags {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
 }
 
+.project-fs .tag {
+  color: rgba(242, 240, 239, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.project-fs__images {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 55vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.project-fs__images::-webkit-scrollbar { display: none; }
+
+.project-fs__thumb {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  display: block;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-fs__images--visible .project-fs__thumb {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-fs__images--visible .project-fs__thumb:nth-child(1) { transition-delay: 0.05s; }
+.project-fs__images--visible .project-fs__thumb:nth-child(2) { transition-delay: 0.15s; }
+.project-fs__images--visible .project-fs__thumb:nth-child(3) { transition-delay: 0.25s; }
+.project-fs__images--visible .project-fs__thumb:nth-child(4) { transition-delay: 0.35s; }
+
+.project-fs__thumb img,
+.project-fs__thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-fs__thumb:hover img,
+.project-fs__thumb:hover video {
+  transform: scale(1.05);
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .project-item,
-  .project-item--right {
-    grid-template-columns: 1fr;
-    direction: ltr;
-  }
+  .proj-gallery__info { flex: 1 1 auto; }
+  .proj-gallery__cta { display: none; }
+  .project-fs__title { font-size: var(--size-3xl); }
 }
