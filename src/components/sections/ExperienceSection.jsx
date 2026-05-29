@@ -53,11 +53,13 @@ export default function ExperienceSection() {
         </div>
 
         <p className="exp-desc r">
-          At Nykredit's in-house design team I worked across nearly every format —
-          website components, a custom iPad app, brand identity systems, and print
-          production spanning everything from Instagram to congress stands.
-          I contributed to keeping the visual identity consistent across the entire
-          Nykredit Group, including during the merger of two major Danish banks.
+          I joined Nykredit's in-house design team as a Student Assistant and ended up
+          touching almost every format the bank produces — UI components for the public
+          website, a custom iPad app for the design team, brand templates and component
+          libraries in Frontify, accessibility-checked fact sheets, plus print work
+          ranging from Instagram posts to congress stands and beach flags. I was also
+          there during the merger of two Danish banks, which meant a lot of careful work
+          keeping a fresh visual identity consistent across the whole Nykredit Group.
         </p>
 
         <div className="exp-tools r">
