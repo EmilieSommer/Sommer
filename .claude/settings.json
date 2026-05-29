@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.shopify.com)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(ffprobe \"/Users/emiliesommerfreltoft/Unity projects/Sommer/Portfolio_Materials/02_videos/Birds in a tree.mp4\")",
+      "Bash(ffmpeg -i \"/Users/emiliesommerfreltoft/Unity projects/Sommer/Portfolio_Materials/02_videos/Birds in a tree.mp4\" -vf scale=1280:720 -c:v libx264 -crf 26 -preset medium -an \"/Users/emiliesommerfreltoft/Unity projects/Sommer/public/assets/birds.mp4\" -y)",
+      "Bash(curl -I \"http://localhost:5173/Sommer/assets/birds.mp4\")",
+      "Bash(curl -I \"http://localhost:5173/assets/birds.mp4\")"
+    ]
+  }
+}

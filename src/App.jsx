@@ -1,25 +1,55 @@
-import SideNav from './components/Navigation/SideNav'
+import { useState, useEffect, useRef } from 'react'
+import VideoHero from './components/VideoHero/VideoHero'
+import DotCursor from './components/DotCursor'
+import SplashCursor from './components/SplashCursor'
 import AboutSection from './components/sections/AboutSection'
 import ExperienceSection from './components/sections/ExperienceSection'
 import ProjectsSection from './components/sections/ProjectsSection'
 import PersonalSection from './components/sections/PersonalSection'
 import ContactSection from './components/sections/ContactSection'
 
-// Set to true when ready to re-enable animations
 export const ANIMATIONS_ENABLED = false
 
-const NAV_ITEMS = [
-  { id: 'about',      label: 'About'      },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects',   label: 'Projects'   },
-  { id: 'personal',   label: 'Personal'   },
-  { id: 'contact',    label: 'Contact'    },
-]
-
 export default function App() {
+  const [onHero, setOnHero] = useState(true)
+  const heroRef = useRef(null)
+
+  useEffect(() => {
+    const el = heroRef.current
+    if (!el) return
+    const enter = () => setOnHero(true)
+    const leave = () => setOnHero(false)
+    el.addEventListener('mouseenter', enter)
+    el.addEventListener('mouseleave', leave)
+    return () => {
+      el.removeEventListener('mouseenter', enter)
+      el.removeEventListener('mouseleave', leave)
+    }
+  }, [])
+
   return (
     <>
-      <SideNav items={NAV_ITEMS} />
+      <DotCursor onHero={onHero} />
+
+      {/* SplashCursor canvas: visible only over the hero */}
+      <div style={{ opacity: onHero ? 1 : 0, transition: 'opacity 0.4s', pointerEvents: 'none' }}>
+        <SplashCursor
+          BACK_COLOR={{ r: 0, g: 0, b: 0 }}
+          TRANSPARENT={true}
+          SPLAT_RADIUS={0.35}
+          SPLAT_FORCE={8000}
+          DENSITY_DISSIPATION={4}
+          VELOCITY_DISSIPATION={2.5}
+          COLOR_UPDATE_SPEED={8}
+          RAINBOW_MODE={false}
+          COLOR="#FFFFFF"
+        />
+      </div>
+
+      <div ref={heroRef}>
+        <VideoHero />
+      </div>
+
       <main>
         <AboutSection />
         <ExperienceSection />

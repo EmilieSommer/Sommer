@@ -30,10 +30,7 @@ export default function SideNav({ items }) {
   return (
     <nav className="side-nav" aria-label="Section navigation">
       <ul className="side-nav__list">
-        {/* Line lives inside the list so it aligns with the dots */}
-        <div className="side-nav__line" aria-hidden="true" />
-
-        {items.map(({ id, label, variant = 'normal' }) => (
+{items.map(({ id, label, variant = 'normal' }) => (
           <li key={id} className="side-nav__item">
             <button
               className={`side-nav__dot side-nav__dot--${variant} ${active === id ? 'side-nav__dot--active' : ''}`}

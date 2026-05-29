@@ -1,0 +1,17 @@
+.dot-cursor {
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease;
+}
+
+.dot-cursor--dark {
+  background: var(--color-primary);
+}
