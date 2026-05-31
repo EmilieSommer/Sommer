@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import VideoHero from './components/VideoHero/VideoHero'
+import ProjectTeaser from './components/ProjectTeaser/ProjectTeaser'
 import DotCursor from './components/DotCursor'
 import SplashCursor from './components/SplashCursor'
 import AboutSection from './components/sections/AboutSection'
@@ -49,6 +50,8 @@ export default function App() {
       <div ref={heroRef}>
         <VideoHero />
       </div>
+
+      <ProjectTeaser />
 
       <main>
         <AboutSection />

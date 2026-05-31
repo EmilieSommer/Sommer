@@ -20,19 +20,19 @@ const EDUCATION = [
   {
     school: 'Aalborg University Copenhagen',
     degree: 'BSc in Medialogi',
-    period: 'Sep 2023 — Jun 2026',
-    description: 'Medialogi explores how people and technology interact. The work spans interaction design, UX research, prototyping, programming, game development, and user testing — a broad, hands-on degree that combines visual craft with technical execution.',
+    period: 'Sep 2023 - Jun 2026',
+    description: 'Medialogi explores how people and technology interact. The work spans interaction design, UX research, prototyping, programming, game development, and user testing. A broad, hands-on degree that combines visual craft with technical execution.',
   },
   {
     school: 'The Scandinavian Design College',
     degree: 'Architecture & Urban Design',
-    period: '2020 — 2021',
+    period: '2020 - 2021',
     description: 'A year focused on architecture, urban spaces, and design processes.',
   },
   {
     school: 'Rysensteen Gymnasium',
     degree: 'Spanish · Drama track',
-    period: '2016 — 2019',
+    period: '2016 - 2019',
     description: null,
   },
 ]
@@ -41,7 +41,7 @@ const SKILLS = [
   {
     category: 'UX & Interaction',
     items: ['Interaction design', 'User research', 'Usability testing', 'Wireframing', 'Prototyping'],
-    description: 'Designing with the user in mind — from early research and testing to refined, intuitive interactions.',
+    description: 'Designing with the user in mind, from early research and testing to refined, intuitive interactions.',
   },
   {
     category: 'Visual Design',
@@ -51,12 +51,12 @@ const SKILLS = [
   {
     category: '3D & Spatial',
     items: ['3D modelling', 'Sculpting', 'Architectural design', 'Game environments'],
-    description: 'Building in three dimensions — from digital sculpting in Nomad to environments in Blender and Unity.',
+    description: 'Building in three dimensions, from digital sculpting in Nomad to environments in Blender and Unity.',
   },
   {
     category: 'Concept & Strategy',
     items: ['Concept development', 'Ideation', 'Design thinking', 'Sustainability design'],
-    description: 'Developing ideas from brief to concept — with a focus on purpose, context, and the bigger picture.',
+    description: 'Developing ideas from brief to concept, with a focus on purpose, context, and the bigger picture.',
   },
 ]
 
@@ -99,25 +99,32 @@ export default function AboutSection() {
   return (
     <section ref={sectionRef} className="content-section" id="about">
       <div className="section__inner">
-        <span className="section__eyebrow r">01 — About</span>
+        <span className="section__eyebrow r">01 - About</span>
         <h2 className="section__heading r">Hi, I'm Emilie.</h2>
         <p className="section__meta r">Designer · Copenhagen · finishing my bachelor June 2026</p>
         <div className="about-grid r">
 
           <div className="about-portrait">
-            {/* Replace with <img src="..." alt="Emilie Sommer" /> */}
-            <div className="portrait-placeholder" aria-hidden="true" />
+            <img
+              src={`${import.meta.env.BASE_URL}assets/about/emilie.png`}
+              alt="Emilie Sommer"
+              className="portrait-img"
+              draggable={false}
+            />
           </div>
 
           <div className="about-text">
             <p className="about-bio">
-              Hi! I'm Emilie — a designer based in Copenhagen, finishing my Medialogi
-              bachelor at Aalborg University this June. For the past two years I've
-              also been a Student Assistant on Nykredit's in-house design team, where
-              I work across UI, brand, and print. The rest of my time goes into
-              interaction design, serious games, and the occasional 3D experiment.
-              I'm curious, easy to work with, and happiest when a project leaves the
-              people who use it a little better off than before.
+              I'm Emilie, a designer based in Copenhagen, finishing my three-year
+              Medialogi bachelor at Aalborg University in June 2026. For the past
+              two years I've also been a Student Assistant on Nykredit's in-house
+              design team, where I work on the website, the brand identity, and
+              print materials. My studies cover interaction design, UX research,
+              serious games, and VR, including a mental health training game I
+              designed with three mental health ambassadors that was published
+              alongside an academic study. After graduation I'm looking for a
+              UX or product design role at a company that takes both craft and
+              research seriously.
             </p>
 
             <div className="accordion-group">

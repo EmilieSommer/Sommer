@@ -317,7 +317,15 @@
 
 /* ── Mobile ──────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .proj-gallery__info { flex: 1 1 auto; }
+  /* Always show the project info on mobile (no hover trigger). */
+  .proj-gallery__card .nk-gallery__frame { height: calc(100vw / 1.8); }
+  .proj-gallery__card:hover .nk-gallery__frame { height: calc(100vw / 1.8); }
+  .nk-gallery__card .proj-gallery__slide { opacity: 1; }
+  .nk-gallery__card .proj-gallery__caption { display: none; }
+  .proj-gallery__info { flex: 1 1 auto; padding-left: 14px; }
+  .proj-gallery__title { font-size: clamp(1.1rem, 5vw, 1.7rem); }
+  .proj-gallery__desc { font-size: clamp(0.68rem, 2.6vw, 0.85rem); -webkit-line-clamp: 2; }
   .proj-gallery__cta { display: none; }
   .project-fs__title { font-size: var(--size-3xl); }
+  .project-fs__layout { grid-template-columns: 1fr; }
 }

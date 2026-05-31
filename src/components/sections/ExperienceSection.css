@@ -48,6 +48,87 @@
   margin-bottom: var(--space-8);
 }
 
+/* ── Previous roles list (sub-block under the Nykredit gallery) ── */
+.exp-previous {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(30, 30, 32, 0.12);
+}
+
+.exp-previous__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brown);
+  margin-bottom: var(--space-4);
+}
+
+.exp-previous__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-previous__item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid rgba(30, 30, 32, 0.08);
+}
+
+.exp-previous__item:last-child {
+  border-bottom: none;
+}
+
+.exp-previous__main {
+  min-width: 0;
+}
+
+.exp-previous__company {
+  font-family: var(--font-display);
+  font-size: var(--size-xl);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.exp-previous__role {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.exp-previous__bullets {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  color: var(--color-text);
+  line-height: 1.6;
+  opacity: 0.75;
+}
+
+.exp-previous__period {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  color: var(--color-brown);
+  white-space: nowrap;
+  padding-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .exp-previous__item { grid-template-columns: 1fr; gap: 4px; }
+  .exp-previous__period { padding-top: 0; }
+}
+
 /* ── Gallery ──────────────────────────────────────────────────── */
 .nk-gallery {
   width: 100vw;
@@ -194,6 +275,16 @@
 @media (max-width: 768px) {
   .exp-header { flex-direction: column; gap: var(--space-1); }
   .nk-gallery { width: 100vw; margin-left: calc(-1 * var(--space-3)); }
-  .nk-gallery__frame { height: 80px; }
-  .nk-gallery__card:hover .nk-gallery__frame { height: 200px; }
+
+  /* On touch devices the hover trigger never fires, so show every slide
+     fully expanded with its description visible by default. */
+  .nk-gallery__frame { height: calc(100vw / 2.957); }
+  .nk-gallery__slide { opacity: 1; }
+  .nk-slide-text { opacity: 1; width: 50%; padding: 16px 14px; }
+  .nk-slide-text__heading { font-size: clamp(1rem, 4.2vw, 1.3rem); margin-bottom: 6px; }
+  .nk-slide-text__desc    { font-size: clamp(0.65rem, 2.6vw, 0.78rem); line-height: 1.45; }
+  .nk-gallery__caption { display: none; }
+
+  .exp-previous__item { grid-template-columns: 1fr; gap: 4px; }
+  .exp-previous__period { padding-top: 0; }
 }

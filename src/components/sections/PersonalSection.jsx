@@ -31,7 +31,7 @@ export default function PersonalSection() {
   return (
     <section className="content-section" id="personal">
       <div className="section__inner">
-        <span className="section__eyebrow">04 — Personal</span>
+        <span className="section__eyebrow">04 - Personal</span>
         <h2 className="section__heading">My own work</h2>
         <p className="section__meta">Paintings · mixed media · 3D renders · concept experiments</p>
 
