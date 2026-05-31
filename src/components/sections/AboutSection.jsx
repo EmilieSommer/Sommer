@@ -122,9 +122,7 @@ export default function AboutSection() {
               print materials. My studies cover interaction design, UX research,
               serious games, and VR, including a mental health training game I
               designed with three mental health ambassadors that was published
-              alongside an academic study. After graduation I'm looking for a
-              UX or product design role at a company that takes both craft and
-              research seriously.
+              alongside an academic study.
             </p>
 
             <div className="accordion-group">

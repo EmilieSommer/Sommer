@@ -101,7 +101,7 @@ const STUDIO_TAGS = ['Unity', 'C#', 'VR', 'Game Design', 'Sound Design', 'Resear
 function ProjectFullscreen({ project, onClose }) {
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const [soundOn, setSoundOn] = useState(true)
-  const [imagesRevealed, setImagesRevealed] = useState(false)
+  const [imagesRevealed, setImagesRevealed] = useState(true)
   const videoRef = useRef(null)
   const fsRef = useRef(null)
   const audioRef = useRef(null)
@@ -119,14 +119,6 @@ function ProjectFullscreen({ project, onClose }) {
       if (videoRef.current) videoRef.current.muted = false
     }
   }, [project.sound])
-
-  useEffect(() => {
-    const el = fsRef.current
-    if (!el || !project.images.length) return
-    const onScroll = () => { if (el.scrollTop > 30) setImagesRevealed(true) }
-    el.addEventListener('scroll', onScroll, { passive: true })
-    return () => el.removeEventListener('scroll', onScroll)
-  }, [project.images.length])
 
   const toggleSound = () => {
     setSoundOn((prev) => {

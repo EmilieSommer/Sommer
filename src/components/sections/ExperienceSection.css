@@ -168,9 +168,7 @@
 }
 
 /* Full slide overlay — fades in on hover, fills frame at the matched aspect.
-   The left ~38% is masked out so only the photo cards on the right show;
-   the original SVG title + body text live in that masked region and are now
-   replaced by the React text panel (.nk-slide-text). */
+   The SVGs are now the "without text" versions, so no mask is needed. */
 .nk-gallery__slide {
   position: absolute;
   top: 0; left: 0;
@@ -180,16 +178,14 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
-  mask-image:         linear-gradient(to right, transparent 32%, black 44%);
-  -webkit-mask-image: linear-gradient(to right, transparent 32%, black 44%);
 }
 
 .nk-gallery__card:hover .nk-gallery__slide {
   opacity: 1;
 }
 
-/* Clean React text overlay — covers the SVG's baked-in title + body text
-   on the left side of each slide so the description is actually readable. */
+/* React text overlay on the left of each slide — replaces the SVG's old
+   baked-in text. No background panel; text-shadow handles readability. */
 .nk-slide-text {
   position: absolute;
   top: 0;
@@ -202,12 +198,6 @@
   justify-content: center;
   padding: clamp(24px, 3.5vw, 56px);
   pointer-events: none;
-  background: linear-gradient(
-    to right,
-    rgba(10, 18, 32, 0.78) 0%,
-    rgba(10, 18, 32, 0.6)  60%,
-    transparent            100%
-  );
   opacity: 0;
   transition: opacity 0.5s ease;
 }
@@ -222,17 +212,20 @@
   font-weight: 700;
   line-height: 1.1;
   color: #F2F0EF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45);
   margin-bottom: clamp(10px, 1.2vw, 18px);
 }
 
 .nk-slide-text__desc {
   font-family: var(--font-body);
   font-size: clamp(0.85rem, 0.95vw, 1rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
-  color: rgba(242, 240, 239, 0.92);
+  color: #F2F0EF;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.5);
   max-width: 40ch;
 }
+
 
 /* Caption — visible in collapsed state, fades out when expanded */
 .nk-gallery__caption {
@@ -283,7 +276,6 @@
   .nk-slide-text { opacity: 1; width: 50%; padding: 16px 14px; }
   .nk-slide-text__heading { font-size: clamp(1rem, 4.2vw, 1.3rem); margin-bottom: 6px; }
   .nk-slide-text__desc    { font-size: clamp(0.65rem, 2.6vw, 0.78rem); line-height: 1.45; }
-  .nk-gallery__caption { display: none; }
 
   .exp-previous__item { grid-template-columns: 1fr; gap: 4px; }
   .exp-previous__period { padding-top: 0; }
