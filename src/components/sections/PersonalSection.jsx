@@ -31,12 +31,9 @@ export default function PersonalSection() {
   return (
     <section className="content-section" id="personal">
       <div className="section__inner">
-        <span className="section__eyebrow">07 — Personal</span>
+        <span className="section__eyebrow">04 — Personal</span>
         <h2 className="section__heading">My own work</h2>
-        <p className="section__sub">
-          A collection of personal pieces — paintings, mixed media, 3D renders, and
-          concept design experiments made outside of school and work.
-        </p>
+        <p className="section__meta">Paintings · mixed media · 3D renders · concept experiments</p>
 
         <div className="personal-grid">
           {PERSONAL_WORKS.map((work, i) => (

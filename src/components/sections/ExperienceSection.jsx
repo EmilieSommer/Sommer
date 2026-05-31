@@ -7,11 +7,41 @@ const BASE = import.meta.env.BASE_URL
 const S = `${BASE}assets/nykredit/slides/`
 
 const SLIDES = [
-  { src: `${S}slide_website.png`,      bg: `${S}slide_website_bg.jpg`,      label: 'Website, app & digital assets' },
-  { src: `${S}slide_print.png`,        bg: `${S}slide_print_bg.jpg`,        label: 'Print materials & fact sheets' },
-  { src: `${S}slide_posters.png`,      bg: `${S}slide_posters_bg.jpg`,      label: 'Posters, roll-ups & social media' },
-  { src: `${S}slide_infographics.png`, bg: `${S}slide_infographics_bg.jpg`, label: 'Infographics & presentations' },
-  { src: `${S}slide_branded.png`,      bg: `${S}slide_branded_bg.jpg`,      label: 'Branded merchandise' },
+  {
+    src: `${S}slide_website.png`,
+    bg:  `${S}slide_website_bg.jpg`,
+    label: 'Website, app & digital assets',
+    heading: <>Website, app and<br />digital assets</>,
+    desc: 'Designed UI components for the Nykredit website and co-developed a custom iPad app for the design team. Set up templates and component libraries in Optimizely and Frontify, and curated the photography library used across the group.',
+  },
+  {
+    src: `${S}slide_print.png`,
+    bg:  `${S}slide_print_bg.jpg`,
+    label: 'Print materials & fact sheets',
+    heading: <>Print materials and<br />fact sheets</>,
+    desc: 'Designed invitations, greeting cards, and accessibility-checked fact sheets. Maintained and corrected logo files across every format, and built logo libraries used by the whole group.',
+  },
+  {
+    src: `${S}slide_posters.png`,
+    bg:  `${S}slide_posters_bg.jpg`,
+    label: 'Posters, roll-ups & social media',
+    heading: <>Posters, roll-ups<br />and social media</>,
+    desc: 'Created posters and large-format roll-ups for events and campaigns, plus social media content for Instagram and internal channels — keeping print and digital visually consistent.',
+  },
+  {
+    src: `${S}slide_infographics.png`,
+    bg:  `${S}slide_infographics_bg.jpg`,
+    label: 'Infographics & presentations',
+    heading: <>Infographics and<br />presentations</>,
+    desc: 'Designed infographics for internal screens — coffee machines, elevator displays — and set up PowerPoint templates used across the group. Worked on visual integration during a major bank merger.',
+  },
+  {
+    src: `${S}slide_branded.png`,
+    bg:  `${S}slide_branded_bg.jpg`,
+    label: 'Branded merchandise',
+    heading: <>Branded<br />merchandise</>,
+    desc: 'Prepared print-ready files for a wide range of branded items: jerseys, water bottles, pens, beach flags, congress stands, sponsor checks, and roll-ups — all to production specifications.',
+  },
 ]
 
 const TOOLS = ['Figma', 'Adobe Illustrator', 'InDesign', 'Photoshop', 'Frontify', 'Optimizely']
@@ -24,6 +54,10 @@ function NykreditGallery() {
           <div className="nk-gallery__frame">
             <img className="nk-gallery__bg"    src={slide.bg}  alt="" draggable={false} aria-hidden="true" />
             <img className="nk-gallery__slide" src={slide.src} alt={slide.label} draggable={false} />
+            <div className="nk-slide-text">
+              <h3 className="nk-slide-text__heading">{slide.heading}</h3>
+              <p className="nk-slide-text__desc">{slide.desc}</p>
+            </div>
             <div className="nk-gallery__caption">
               <span className="nk-gallery__num">0{i + 1}</span>
               <span className="nk-gallery__name">{slide.label}</span>
@@ -43,14 +77,8 @@ export default function ExperienceSection() {
     <section ref={sectionRef} className="content-section" id="experience">
       <div className="section__inner">
         <span className="section__eyebrow r">02 — Experience</span>
-
-        <div className="exp-header r">
-          <div>
-            <p className="exp-role">Student Assistant, Design Team</p>
-            <p className="exp-company">Nykredit</p>
-          </div>
-          <span className="exp-period">Add dates</span>
-        </div>
+        <h2 className="section__heading r">Nykredit</h2>
+        <p className="section__meta r">Student Assistant · Design Team · in-house</p>
 
         <p className="exp-desc r">
           I joined Nykredit's in-house design team as a Student Assistant and ended up

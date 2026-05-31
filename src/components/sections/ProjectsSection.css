@@ -47,7 +47,9 @@
   width: 10px;
 }
 
-/* Hover overlay — dark gradient with project info on the left */
+/* Hover overlay — dark gradient with project info on the left.
+   `mask-image: none` overrides the mask inherited from .nk-gallery__slide
+   (which is meant for the Nykredit image slides, not these React overlays). */
 .proj-gallery__slide {
   width: 100% !important;
   height: 100% !important;
@@ -55,6 +57,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 clamp(28px, 4vw, 64px) 0 clamp(40px, 5vw, 80px);
+  mask-image: none;
+  -webkit-mask-image: none;
   background: linear-gradient(
     to right,
     rgba(10, 8, 5, 0.88) 0%,
