@@ -86,7 +86,10 @@
   pointer-events: none;
 }
 
-/* Full slide overlay — fades in on hover, fills frame at the matched aspect */
+/* Full slide overlay — fades in on hover, fills frame at the matched aspect.
+   The left ~38% is masked out so only the photo cards on the right show;
+   the original SVG title + body text live in that masked region and are now
+   replaced by the React text panel (.nk-slide-text). */
 .nk-gallery__slide {
   position: absolute;
   top: 0; left: 0;
@@ -96,10 +99,58 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+  mask-image:         linear-gradient(to right, transparent 32%, black 44%);
+  -webkit-mask-image: linear-gradient(to right, transparent 32%, black 44%);
 }
 
 .nk-gallery__card:hover .nk-gallery__slide {
   opacity: 1;
+}
+
+/* Clean React text overlay — covers the SVG's baked-in title + body text
+   on the left side of each slide so the description is actually readable. */
+.nk-slide-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 42%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 3.5vw, 56px);
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(10, 18, 32, 0.78) 0%,
+    rgba(10, 18, 32, 0.6)  60%,
+    transparent            100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.nk-gallery__card:hover .nk-slide-text {
+  opacity: 1;
+}
+
+.nk-slide-text__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #F2F0EF;
+  margin-bottom: clamp(10px, 1.2vw, 18px);
+}
+
+.nk-slide-text__desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(242, 240, 239, 0.92);
+  max-width: 40ch;
 }
 
 /* Caption — visible in collapsed state, fades out when expanded */

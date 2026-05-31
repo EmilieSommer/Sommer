@@ -18,20 +18,20 @@ const TOOLS = [
 
 const EDUCATION = [
   {
-    school: 'Aalborg University',
-    degree: 'Bachelor i Medialogi',
-    period: '2023 — nu',
-    description: 'Medialogi handler om samspillet mellem mennesker og teknologi. Jeg arbejder med interaktionsdesign, UX, prototyping, programmering, spiludvikling og brugertest — en bred og praksisnær uddannelse der kombinerer det visuelle med det funktionelle.',
+    school: 'Aalborg University Copenhagen',
+    degree: 'BSc in Medialogi',
+    period: 'Sep 2023 — Jun 2026',
+    description: 'Medialogi explores how people and technology interact. The work spans interaction design, UX research, prototyping, programming, game development, and user testing — a broad, hands-on degree that combines visual craft with technical execution.',
   },
   {
-    school: 'Den Skandinaviske Designhøjskole',
-    degree: 'Arkitektur og Bydesign',
+    school: 'The Scandinavian Design College',
+    degree: 'Architecture & Urban Design',
     period: '2020 — 2021',
-    description: 'Et år med fokus på arkitektur, byrum og designprocesser.',
+    description: 'A year focused on architecture, urban spaces, and design processes.',
   },
   {
     school: 'Rysensteen Gymnasium',
-    degree: 'Spansk, Drama-linje',
+    degree: 'Spanish · Drama track',
     period: '2016 — 2019',
     description: null,
   },
@@ -100,6 +100,8 @@ export default function AboutSection() {
     <section ref={sectionRef} className="content-section" id="about">
       <div className="section__inner">
         <span className="section__eyebrow r">01 — About</span>
+        <h2 className="section__heading r">Hi, I'm Emilie.</h2>
+        <p className="section__meta r">Designer · Copenhagen · finishing my bachelor June 2026</p>
         <div className="about-grid r">
 
           <div className="about-portrait">
@@ -108,13 +110,14 @@ export default function AboutSection() {
           </div>
 
           <div className="about-text">
-            <h2 className="section__heading">About me</h2>
             <p className="about-bio">
-              Hi! I'm Emilie — a designer and Medialogi student based in Copenhagen.
-              I love making things: interfaces, games, posters, the occasional 3D world.
-              Some of it ends up on a Nykredit billboard, some of it gets played at a festival,
-              some of it just lives in my notebook. I'm endlessly curious, easy to work with,
-              and happiest when a project leaves the people who use it a little better off than before.
+              Hi! I'm Emilie — a designer based in Copenhagen, finishing my Medialogi
+              bachelor at Aalborg University this June. For the past two years I've
+              also been a Student Assistant on Nykredit's in-house design team, where
+              I work across UI, brand, and print. The rest of my time goes into
+              interaction design, serious games, and the occasional 3D experiment.
+              I'm curious, easy to work with, and happiest when a project leaves the
+              people who use it a little better off than before.
             </p>
 
             <div className="accordion-group">

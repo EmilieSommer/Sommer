@@ -273,15 +273,9 @@ export default function ProjectsSection() {
   return (
     <section className="content-section" id="projects">
       <div className="section__inner">
-        <span className="section__eyebrow">06 — Projects</span>
-
-        <div className="exp-header">
-          <div>
-            <p className="exp-role">Medialogi Student</p>
-            <p className="exp-company">Aalborg University Copenhagen</p>
-          </div>
-          <span className="exp-period">Selected coursework</span>
-        </div>
+        <span className="section__eyebrow">03 — Projects</span>
+        <h2 className="section__heading">Medialogi</h2>
+        <p className="section__meta">Aalborg University Copenhagen · selected coursework</p>
 
         <p className="exp-desc">
           Two years of game design coursework across serious games, VR, and rapid
