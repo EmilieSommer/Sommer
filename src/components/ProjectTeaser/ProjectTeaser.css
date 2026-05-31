@@ -1,0 +1,127 @@
+/* ── Teaser band — sits between hero and About ───────────────── */
+.teaser {
+  position: relative;
+  background: var(--color-bg);
+  padding: var(--space-8) 0 var(--space-12);
+  overflow: hidden;
+}
+
+.teaser__header {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-4);
+  padding: 0 var(--space-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.teaser__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.teaser__hint {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  color: var(--color-brown);
+  opacity: 0.7;
+}
+
+/* ── Viewport: clips the marquee + soft fade edges ───────────── */
+.teaser__viewport {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+  mask-image:         linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+@keyframes teaser-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.teaser__track {
+  display: flex;
+  gap: var(--space-2);
+  width: max-content;
+  animation: teaser-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.teaser__viewport:hover .teaser__track {
+  animation-play-state: paused;
+}
+
+/* ── Tile ─────────────────────────────────────────────────────── */
+.teaser__tile {
+  position: relative;
+  flex: 0 0 auto;
+  width: 320px;
+  height: 200px;
+  border: none;
+  padding: 0;
+  background: #111;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(30, 30, 32, 0.08);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.teaser__tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(30, 30, 32, 0.18);
+}
+
+.teaser__tile video,
+.teaser__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.teaser__tile:hover video,
+.teaser__tile:hover img {
+  transform: scale(1.04);
+}
+
+/* Full-width soft gradient at the bottom of each tile — no hard edge */
+.teaser__tile::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.teaser__tile-label {
+  position: absolute;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: var(--space-2);
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: var(--size-base);
+  font-weight: 700;
+  color: #F2F0EF;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .teaser { padding: var(--space-6) 0 var(--space-8); }
+  .teaser__header { padding: 0 var(--space-3); }
+  .teaser__hint { display: none; }
+  .teaser__tile { width: 220px; height: 140px; }
+  .teaser__track { animation-duration: 45s; }
+}

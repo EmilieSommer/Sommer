@@ -17,7 +17,7 @@ const SCENES = [
   },
   {
     id: 2,
-    lines: [{ text: 'I design websites, apps, brand systems, and the occasional VR world.', className: 'scene__statement' }],
+    lines: [{ text: 'I design across UI, brand systems, print, and immersive VR.', className: 'scene__statement' }],
   },
   { id: 3, lines: [{ text: 'have a look around ↓', className: 'scene__cta' }] },
 ]

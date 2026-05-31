@@ -1,17 +1,19 @@
 .about-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: var(--space-12);
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-10);
   align-items: start;
 }
 
-.portrait-placeholder {
+.portrait-img {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: var(--color-primary);
+  object-fit: cover;
+  object-position: center top;
   border-radius: var(--radius);
   position: sticky;
   top: var(--space-8);
+  display: block;
 }
 
 .about-bio {

@@ -15,14 +15,14 @@ const PROJECTS = [
     video: `${P}liv_bg.mp4`,
     sound: `${P}liv_sound.mp3`,
     images: [
-      { src: `${P}liv_dream.mp4`, alt: 'Liv — Dream', isVideo: true },
-      { src: `${P}liv_1.png`, alt: 'Liv — Bathroom' },
-      { src: `${P}liv_2.png`, alt: 'Liv — Bedroom' },
-      { src: `${P}liv_3.png`, alt: 'Liv — Kitchen' },
-      { src: `${P}liv_4.png`, alt: 'Liv — Friend' },
-      { src: `${P}liv_5.png`, alt: 'Liv — Living room' },
+      { src: `${P}liv_dream.mp4`, alt: 'Liv - Dream', isVideo: true },
+      { src: `${P}liv_1.png`, alt: 'Liv - Bathroom' },
+      { src: `${P}liv_2.png`, alt: 'Liv - Bedroom' },
+      { src: `${P}liv_3.png`, alt: 'Liv - Kitchen' },
+      { src: `${P}liv_4.png`, alt: 'Liv - Friend' },
+      { src: `${P}liv_5.png`, alt: 'Liv - Living room' },
     ],
-    description: 'Developed in close collaboration with three mental health ambassadors who have lived with suicidal ideation and suicide attempts, this serious game provides an empathetic training tool for relatives. Players navigate sensitive, emotionally charged conversations to learn how to actively support loved ones in crisis, discover what to say, and break the stigma around mental health. Published alongside an academic study, the project bridges empirical research with interactive empathy training.',
+    description: 'Liv is a serious game I designed to help relatives support someone they love through a suicidal crisis. I built it in close collaboration with three mental health ambassadors who have lived through these crises themselves, so every conversation in the game would feel honest to both the people in distress and the people around them. The game was published alongside an academic study because it showed a new way to use interactive design as empathy training, taking mental health research out of journals and into a tool that families can actually use. It is the project I am proudest of.',
   },
   {
     id: 'torsken',
@@ -41,10 +41,10 @@ const PROJECTS = [
     color: '#896645',
     video: `${P}floop_bg.mp4`,
     images: [
-      { src: `${P}floop_1.jpg`, alt: 'Floop — screenshot 1' },
-      { src: `${P}floop_2.jpg`, alt: 'Floop — screenshot 2' },
-      { src: `${P}floop_3.jpg`, alt: 'Floop — screenshot 3' },
-      { src: `${P}floop_4.jpg`, alt: 'Floop — screenshot 4' },
+      { src: `${P}floop_1.jpg`, alt: 'Floop - screenshot 1' },
+      { src: `${P}floop_2.jpg`, alt: 'Floop - screenshot 2' },
+      { src: `${P}floop_3.jpg`, alt: 'Floop - screenshot 3' },
+      { src: `${P}floop_4.jpg`, alt: 'Floop - screenshot 4' },
     ],
     description: 'Escape to a place of pure serenity in this immersive VR experience. Developed in close collaboration with a professional music therapist, Floop wraps players in a responsive, therapeutic musical landscape designed to induce deep relaxation. This innovative blend of sound design and spatial audio was successfully showcased as an interactive installation at both Roskilde Festival and SPOT Festival.',
   },
@@ -55,7 +55,7 @@ const PROJECTS = [
     color: '#1a3a2a',
     video: `${P}asymetric_bg.mp4`,
     images: [
-      { src: `${P}asymetric_1.jpg`, alt: 'Asymetric Cinema — screenshot' },
+      { src: `${P}asymetric_1.jpg`, alt: 'Asymetric Cinema - screenshot' },
     ],
     description: 'In this collaborative VR murder mystery, two players stand in the exact same cottage but are fractured across time. One player witnesses the unsettling events leading up to a fatal crime, while the other navigates the cold reality of the subsequent investigation. Trapped in separate eras, you must actively talk, share what you see, and piece together the clues to catch the killer.',
   },
@@ -66,7 +66,7 @@ const PROJECTS = [
     color: '#1a1a2e',
     video: `${P}veil_bg.mp4`,
     images: [
-      { src: `${P}veil_1.jpg`, alt: 'Veil of Fear — screenshot' },
+      { src: `${P}veil_1.jpg`, alt: 'Veil of Fear - screenshot' },
     ],
     description: 'In this immersive psychological horror game, integrated eye-tracking technology forces you to physically close your eyes to survive the monster\'s presence, turning your own vision into a liability. As you navigate the mansion\'s descent into a surreal asylum, you must search cramped cells for a missing person while your character\'s grip on reality visibly fractures.',
   },
@@ -78,7 +78,7 @@ const PROJECTS = [
     video: `${P}butworse_bg.mp4`,
     videoScale: 1.5,
     images: [
-      { src: `${P}butworse_1.jpg`, alt: 'But Worse — screenshot' },
+      { src: `${P}butworse_1.jpg`, alt: 'But Worse - screenshot' },
     ],
     description: 'A raw, rapid-prototyping mini-project born from a challenge to replicate an existing commercial game from scratch. Built from the ground up in just one week, a little replica of a home design game.',
   },
@@ -90,7 +90,7 @@ const PROJECTS = [
     video: null,
     bgImage: `${P}deathrun_bg.png`,
     images: [
-      { src: `${P}deathrun_1.png`, alt: 'Deathrun — screenshot' },
+      { src: `${P}deathrun_1.png`, alt: 'Deathrun - screenshot' },
     ],
     description: 'A fast-paced multiplayer mini-project designed to push the boundaries of asymmetric gameplay. Deathrun explores a tense virtual duality, pitting a crowd of traditional online PC players against a single, heavily empowered user in VR. The project serves as a technical testbed for real-time cross-platform synchronisation, forcing two completely different perspectives into the same digital arena.',
   },
@@ -273,15 +273,16 @@ export default function ProjectsSection() {
   return (
     <section className="content-section" id="projects">
       <div className="section__inner">
-        <span className="section__eyebrow">03 — Projects</span>
+        <span className="section__eyebrow">03 - Projects</span>
         <h2 className="section__heading">Medialogi</h2>
-        <p className="section__meta">Aalborg University Copenhagen · selected coursework</p>
+        <p className="section__meta">Aalborg University Copenhagen · BSc · Sep 2023 - Jun 2026</p>
 
         <p className="exp-desc">
-          Two years of game design coursework across serious games, VR, and rapid
-          prototypes. Projects spanned mental health research with lived-experience
-          ambassadors, environmental education for kids, music-therapy installations
-          showcased at Roskilde Festival, and asymmetric multiplayer experiments.
+          A three-year bachelor in Medialogi covering interaction design, UX research,
+          prototyping, programming, game development, and user testing. The projects
+          below span mental health research with lived-experience ambassadors,
+          environmental education for kids, music-therapy installations showcased at
+          Roskilde Festival, and asymmetric multiplayer experiments.
         </p>
 
         <div className="exp-tools">
