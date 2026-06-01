@@ -185,13 +185,14 @@
 }
 
 /* React text overlay on the left of each slide — replaces the SVG's old
-   baked-in text. No background panel; text-shadow handles readability. */
+   baked-in text. Soft dark gradient fades out toward the cards on the right
+   to keep the heading + description readable on every slide bg. */
 .nk-slide-text {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 42%;
+  width: 50%;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -200,6 +201,13 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+  background: linear-gradient(
+    to right,
+    rgba(10, 18, 32, 0.78) 0%,
+    rgba(10, 18, 32, 0.55) 55%,
+    rgba(10, 18, 32, 0.15) 85%,
+    transparent            100%
+  );
 }
 
 .nk-gallery__card:hover .nk-slide-text {
