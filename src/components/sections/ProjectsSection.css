@@ -310,7 +310,8 @@
   background: var(--color-bg);
 }
 
-.project-fs__expansion img {
+.project-fs__expansion img,
+.project-fs__expansion-video {
   display: block;
   width: 100%;
   height: auto;

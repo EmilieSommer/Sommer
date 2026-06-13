@@ -13,7 +13,8 @@ const PROJECTS = [
     color: '#D95122',
     video: `${P}liv_bg.mp4`,
     sound: `${P}liv_sound.mp3`,
-    expansion: `${P}expansions/liv.svg`,
+    expansionVideo: `${P}liv_dream.mp4`,
+    expansion: `${P}expansions/liv.png`,
     images: [
       { src: `${P}liv_dream.mp4`, alt: 'Liv - Dream', isVideo: true },
       { src: `${P}liv_1.png`, alt: 'Liv - Bathroom' },
@@ -31,7 +32,7 @@ const PROJECTS = [
     color: '#2B4C7E',
     video: `${P}torsken_bg.mp4`,
     sound: `${P}torsken_sound.mp3`,
-    expansion: `${P}expansions/torsken.svg`,
+    expansion: `${P}expansions/torsken.png`,
     images: [],
     description: 'Dive into an environmental rescue mission designed to teach 9-year-olds about the critical state of our oceans. When a friendly fish suddenly finds himself struggling to breathe, young players must step in to investigate why his underwater home is suffocating. By exploring the vibrant but threatened Danish waters, kids uncover the real-world causes of oxygen depletion, transforming complex science into an interactive, empathetic lesson on saving our marine ecosystems.',
   },
@@ -41,7 +42,7 @@ const PROJECTS = [
     tags: ['VR', 'Sound Design', 'Music Therapy'],
     color: '#896645',
     video: `${P}floop_bg.mp4`,
-    expansion: `${P}expansions/floop.svg`,
+    expansion: `${P}expansions/floop.png`,
     images: [
       { src: `${P}floop_1.jpg`, alt: 'Floop - screenshot 1' },
       { src: `${P}floop_2.jpg`, alt: 'Floop - screenshot 2' },
@@ -56,7 +57,7 @@ const PROJECTS = [
     tags: ['VR', 'Multiplayer', 'Narrative'],
     color: '#1a3a2a',
     video: `${P}asymetric_bg.mp4`,
-    expansion: `${P}expansions/asymetric.svg`,
+    expansion: `${P}expansions/asymetric.png`,
     images: [
       { src: `${P}asymetric_1.jpg`, alt: 'Asymetric Cinema - screenshot' },
     ],
@@ -68,7 +69,7 @@ const PROJECTS = [
     tags: ['VR', 'Horror', 'Eye-tracking'],
     color: '#1a1a2e',
     video: `${P}veil_bg.mp4`,
-    expansion: `${P}expansions/veil.svg`,
+    expansion: `${P}expansions/veil.png`,
     images: [
       { src: `${P}veil_1.jpg`, alt: 'Veil of Fear - screenshot' },
     ],
@@ -93,7 +94,7 @@ const PROJECTS = [
     color: '#A33D17',
     video: null,
     bgImage: `${P}deathrun_bg.png`,
-    expansion: `${P}expansions/deathrun.svg`,
+    expansion: `${P}expansions/deathrun.png`,
     images: [
       { src: `${P}deathrun_1.png`, alt: 'Deathrun - screenshot' },
     ],
@@ -191,6 +192,13 @@ function ProjectFullscreen({ project, onClose }) {
 
       {project.expansion && (
         <div className="project-fs__expansion">
+          {project.expansionVideo && (
+            <video
+              className="project-fs__expansion-video"
+              src={project.expansionVideo}
+              autoPlay loop muted playsInline
+            />
+          )}
           <img src={project.expansion} alt={`${project.title} — project details`} />
         </div>
       )}
