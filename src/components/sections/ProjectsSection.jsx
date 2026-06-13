@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import Lightbox from '../Lightbox'
 import './Section.css'
 import './ProjectsSection.css'
 
@@ -14,6 +13,7 @@ const PROJECTS = [
     color: '#D95122',
     video: `${P}liv_bg.mp4`,
     sound: `${P}liv_sound.mp3`,
+    expansion: `${P}expansions/liv.svg`,
     images: [
       { src: `${P}liv_dream.mp4`, alt: 'Liv - Dream', isVideo: true },
       { src: `${P}liv_1.png`, alt: 'Liv - Bathroom' },
@@ -26,11 +26,12 @@ const PROJECTS = [
   },
   {
     id: 'torsken',
-    title: 'Torsken ringer',
+    title: 'Oxygen depletion',
     tags: ['Game Design', 'Education', 'Environment'],
     color: '#2B4C7E',
     video: `${P}torsken_bg.mp4`,
     sound: `${P}torsken_sound.mp3`,
+    expansion: `${P}expansions/torsken.svg`,
     images: [],
     description: 'Dive into an environmental rescue mission designed to teach 9-year-olds about the critical state of our oceans. When a friendly fish suddenly finds himself struggling to breathe, young players must step in to investigate why his underwater home is suffocating. By exploring the vibrant but threatened Danish waters, kids uncover the real-world causes of oxygen depletion, transforming complex science into an interactive, empathetic lesson on saving our marine ecosystems.',
   },
@@ -40,6 +41,7 @@ const PROJECTS = [
     tags: ['VR', 'Sound Design', 'Music Therapy'],
     color: '#896645',
     video: `${P}floop_bg.mp4`,
+    expansion: `${P}expansions/floop.svg`,
     images: [
       { src: `${P}floop_1.jpg`, alt: 'Floop - screenshot 1' },
       { src: `${P}floop_2.jpg`, alt: 'Floop - screenshot 2' },
@@ -54,6 +56,7 @@ const PROJECTS = [
     tags: ['VR', 'Multiplayer', 'Narrative'],
     color: '#1a3a2a',
     video: `${P}asymetric_bg.mp4`,
+    expansion: `${P}expansions/asymetric.svg`,
     images: [
       { src: `${P}asymetric_1.jpg`, alt: 'Asymetric Cinema - screenshot' },
     ],
@@ -65,6 +68,7 @@ const PROJECTS = [
     tags: ['VR', 'Horror', 'Eye-tracking'],
     color: '#1a1a2e',
     video: `${P}veil_bg.mp4`,
+    expansion: `${P}expansions/veil.svg`,
     images: [
       { src: `${P}veil_1.jpg`, alt: 'Veil of Fear - screenshot' },
     ],
@@ -89,6 +93,7 @@ const PROJECTS = [
     color: '#A33D17',
     video: null,
     bgImage: `${P}deathrun_bg.png`,
+    expansion: `${P}expansions/deathrun.svg`,
     images: [
       { src: `${P}deathrun_1.png`, alt: 'Deathrun - screenshot' },
     ],
@@ -99,9 +104,7 @@ const PROJECTS = [
 const STUDIO_TAGS = ['Unity', 'C#', 'VR', 'Game Design', 'Sound Design', 'Research']
 
 function ProjectFullscreen({ project, onClose }) {
-  const [lightboxIndex, setLightboxIndex] = useState(null)
   const [soundOn, setSoundOn] = useState(true)
-  const [imagesRevealed, setImagesRevealed] = useState(true)
   const videoRef = useRef(null)
   const fsRef = useRef(null)
   const audioRef = useRef(null)
@@ -130,6 +133,11 @@ function ProjectFullscreen({ project, onClose }) {
       }
       return next
     })
+  }
+
+  const scrollToExpansion = () => {
+    fsRef.current?.querySelector('.project-fs__expansion')
+      ?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -168,41 +176,23 @@ function ProjectFullscreen({ project, onClose }) {
               {project.tags.map((tag) => <li key={tag} className="tag">{tag}</li>)}
             </ul>
           </div>
-
-          {project.images.length > 0 && (
-            <div className={`project-fs__images${imagesRevealed ? ' project-fs__images--visible' : ''}`}>
-              {project.images.map((item) => (
-                item.isVideo ? (
-                  <div key={item.src} className="project-fs__thumb">
-                    <video src={item.src} autoPlay muted loop playsInline />
-                  </div>
-                ) : (
-                  <button
-                    key={item.src}
-                    className="project-fs__thumb"
-                    onClick={() => {
-                      const imgOnlyIndex = project.images.filter(x => !x.isVideo).findIndex(x => x.src === item.src)
-                      setLightboxIndex(imgOnlyIndex)
-                    }}
-                    aria-label={`View ${item.alt}`}
-                  >
-                    <img src={item.src} alt={item.alt} />
-                  </button>
-                )
-              ))}
-            </div>
-          )}
         </div>
+
+        {project.expansion && (
+          <button
+            className="project-fs__scroll-hint"
+            onClick={scrollToExpansion}
+            aria-label="Scroll down to see more"
+          >
+            <span className="project-fs__scroll-arrow">↓</span>
+          </button>
+        )}
       </div>
 
-      {project.images.length > 0 && <div className="project-fs__spacer" />}
-
-      {lightboxIndex !== null && (
-        <Lightbox
-          images={project.images.filter(x => !x.isVideo)}
-          startIndex={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-        />
+      {project.expansion && (
+        <div className="project-fs__expansion">
+          <img src={project.expansion} alt={`${project.title} — project details`} />
+        </div>
       )}
     </div>
   )

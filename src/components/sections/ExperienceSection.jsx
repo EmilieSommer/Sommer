@@ -4,14 +4,14 @@ import './Section.css'
 import './ExperienceSection.css'
 
 const BASE = import.meta.env.BASE_URL
-const S = `${BASE}assets/nykredit/slides/`
+const C = `${BASE}assets/nykredit/cases/`
 
 const PREVIEW_SLIDES = [
-  `${S}nk_rollups.svg`,
-  `${S}nk_merchandise.svg`,
-  `${S}nk_some.svg`,
-  `${S}nk_ui_components.svg`,
-  `${S}nk_website_modules.svg`,
+  `${C}rollups/Page 1.png`,
+  `${C}merchandise/Image 1.png`,
+  `${C}some/1000x15000.png`,
+  `${C}image_library/Frame 5601.png`,
+  `${C}app_design/Ipad app - forside.png`,
 ]
 
 const TOOLS = ['Figma', 'Adobe Illustrator', 'InDesign', 'Photoshop', 'Frontify', 'Optimizely']

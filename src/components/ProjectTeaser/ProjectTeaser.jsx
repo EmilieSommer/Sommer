@@ -2,17 +2,17 @@ import './ProjectTeaser.css'
 
 const BASE = import.meta.env.BASE_URL
 const P = `${BASE}assets/projects/`
-const N = `${BASE}assets/nykredit/slides/`
+const C = `${BASE}assets/nykredit/cases/`
 
 const TILES = [
-  { kind: 'video', src: `${P}liv_bg.mp4`,       title: 'Liv',                  target: 'projects' },
-  { kind: 'image', src: `${N}slide_posters.png`, title: 'Posters & social',     target: 'experience' },
-  { kind: 'video', src: `${P}floop_bg.mp4`,     title: 'Floop VR',              target: 'projects' },
-  { kind: 'video', src: `${P}asymetric_bg.mp4`, title: 'Asymetric Cinema',      target: 'projects' },
-  { kind: 'image', src: `${N}slide_branded.png`,title: 'Branded merchandise',   target: 'experience' },
-  { kind: 'video', src: `${P}veil_bg.mp4`,      title: 'Veil of Fear',          target: 'projects' },
-  { kind: 'video', src: `${P}torsken_bg.mp4`,   title: 'Torsken ringer',        target: 'projects' },
-  { kind: 'image', src: `${N}slide_print.png`,  title: 'Print & fact sheets',   target: 'experience' },
+  { kind: 'video', src: `${P}liv_bg.mp4`,                title: 'Liv',                  target: 'projects' },
+  { kind: 'image', src: `${C}rollups/Page 1.png`,       title: 'Roll-ups',             target: 'experience' },
+  { kind: 'video', src: `${P}floop_bg.mp4`,             title: 'Floop VR',              target: 'projects' },
+  { kind: 'video', src: `${P}asymetric_bg.mp4`,         title: 'Asymetric Cinema',      target: 'projects' },
+  { kind: 'image', src: `${C}merchandise/Image 1.png`,  title: 'Branded merchandise',   target: 'experience' },
+  { kind: 'video', src: `${P}veil_bg.mp4`,              title: 'Veil of Fear',          target: 'projects' },
+  { kind: 'video', src: `${P}torsken_bg.mp4`,           title: 'Torsken ringer',        target: 'projects' },
+  { kind: 'image', src: `${C}image_library/Frame 5601.png`, title: 'Image library',     target: 'experience' },
 ]
 
 function scrollTo(id) {
