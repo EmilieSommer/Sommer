@@ -6,42 +6,12 @@ import './ExperienceSection.css'
 const BASE = import.meta.env.BASE_URL
 const S = `${BASE}assets/nykredit/slides/`
 
-const SLIDES = [
-  {
-    src: `${S}slide_posters.png`,
-    bg:  `${S}slide_posters_bg.jpg`,
-    label: 'Posters, roll-ups & social media',
-    heading: <>Posters, roll-ups<br />and social media</>,
-    desc: 'Created posters and large-format roll-ups for events and campaigns, plus social media content for Instagram and internal channels, keeping print and digital visually consistent.',
-  },
-  {
-    src: `${S}slide_branded.png`,
-    bg:  `${S}slide_branded_bg.jpg`,
-    label: 'Branded merchandise',
-    heading: <>Branded<br />merchandise</>,
-    desc: 'Prepared production-ready files for a wide range of branded items: jerseys, water bottles, pens, beach flags, congress stands, sponsor checks, and roll-ups.',
-  },
-  {
-    src: `${S}slide_print.png`,
-    bg:  `${S}slide_print_bg.jpg`,
-    label: 'Print materials & fact sheets',
-    heading: <>Print materials and<br />fact sheets</>,
-    desc: 'Designed invitations, greeting cards, and fact sheets tested for accessibility. Maintained logo files across every format and built logo libraries used by the whole group.',
-  },
-  {
-    src: `${S}slide_website.png`,
-    bg:  `${S}slide_website_bg.jpg`,
-    label: 'Website, app & digital assets',
-    heading: <>Website, app and<br />digital assets</>,
-    desc: 'Designed UI components for the Nykredit website and co-developed a custom iPad app for the design team. Set up templates and component libraries in Optimizely and Frontify, and curated the photography library used across the group.',
-  },
-  {
-    src: `${S}slide_infographics.png`,
-    bg:  `${S}slide_infographics_bg.jpg`,
-    label: 'Infographics & presentations',
-    heading: <>Infographics and<br />presentations</>,
-    desc: 'Designed infographics for internal screens like coffee machines and elevator displays, and set up PowerPoint templates used across the group.',
-  },
+const PREVIEW_SLIDES = [
+  `${S}nk_rollups.svg`,
+  `${S}nk_merchandise.svg`,
+  `${S}nk_some.svg`,
+  `${S}nk_ui_components.svg`,
+  `${S}nk_website_modules.svg`,
 ]
 
 const TOOLS = ['Figma', 'Adobe Illustrator', 'InDesign', 'Photoshop', 'Frontify', 'Optimizely']
@@ -67,30 +37,29 @@ const PREVIOUS_ROLES = [
   },
 ]
 
-function NykreditGallery() {
+function NykreditShowcaseButton({ onClick }) {
   return (
-    <div className="nk-gallery">
-      {SLIDES.map((slide, i) => (
-        <div key={slide.label} className="nk-gallery__card">
-          <div className="nk-gallery__frame">
-            <img className="nk-gallery__bg"    src={slide.bg}  alt="" draggable={false} aria-hidden="true" />
-            <img className="nk-gallery__slide" src={slide.src} alt={slide.label} draggable={false} />
-            <div className="nk-slide-text">
-              <h3 className="nk-slide-text__heading">{slide.heading}</h3>
-              <p className="nk-slide-text__desc">{slide.desc}</p>
-            </div>
-            <div className="nk-gallery__caption">
-              <span className="nk-gallery__num">0{i + 1}</span>
-              <span className="nk-gallery__name">{slide.label}</span>
-            </div>
+    <button className="nk-entry" onClick={onClick} aria-label="View Nykredit showcase">
+      <div className="nk-entry__previews" aria-hidden="true">
+        {PREVIEW_SLIDES.map((src, i) => (
+          <div key={src} className="nk-entry__preview" style={{ '--i': i }}>
+            <img src={src} alt="" draggable={false} loading="lazy" />
           </div>
+        ))}
+      </div>
+      <div className="nk-entry__overlay" />
+      <div className="nk-entry__content">
+        <div className="nk-entry__left">
+          <span className="nk-entry__eyebrow">13 slide categories</span>
+          <h3 className="nk-entry__title">View Nykredit showcase</h3>
         </div>
-      ))}
-    </div>
+        <span className="nk-entry__cta">Enter →</span>
+      </div>
+    </button>
   )
 }
 
-export default function ExperienceSection() {
+export default function ExperienceSection({ onOpenNykredit }) {
   const sectionRef = useRef(null)
   useReveal(sectionRef)
 
@@ -104,11 +73,11 @@ export default function ExperienceSection() {
         <p className="exp-desc r">
           I joined Nykredit's in-house design team as a Student Assistant and ended up
           working on almost every format the bank produces: UI components for the public
-          website, a custom iPad app for the design team, brand templates and component
-          libraries in Frontify, fact sheets tested for accessibility, plus print work
-          ranging from Instagram posts to congress stands and beach flags. I was also
-          there during the merger of two Danish banks, which meant a lot of careful work
-          keeping the new visual identity consistent across the whole Nykredit Group.
+          website, brand templates and component libraries in Frontify, fact sheets tested
+          for accessibility, plus print work ranging from Instagram posts to congress stands
+          and beach flags. I was also there during the merger of two Danish banks, which
+          meant a lot of careful work keeping the new visual identity consistent across
+          the whole Nykredit Group.
         </p>
 
         <div className="exp-tools r">
@@ -116,7 +85,7 @@ export default function ExperienceSection() {
         </div>
 
         <div className="r">
-          <NykreditGallery />
+          <NykreditShowcaseButton onClick={onOpenNykredit} />
         </div>
 
         <div className="exp-previous r">

@@ -8,11 +8,13 @@ import ExperienceSection from './components/sections/ExperienceSection'
 import ProjectsSection from './components/sections/ProjectsSection'
 import PersonalSection from './components/sections/PersonalSection'
 import ContactSection from './components/sections/ContactSection'
+import NykreditPage from './components/sections/NykreditPage'
 
 export const ANIMATIONS_ENABLED = false
 
 export default function App() {
   const [onHero, setOnHero] = useState(true)
+  const [nykreditOpen, setNykreditOpen] = useState(false)
   const heroRef = useRef(null)
 
   useEffect(() => {
@@ -28,11 +30,19 @@ export default function App() {
     }
   }, [])
 
+  useEffect(() => {
+    if (nykreditOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [nykreditOpen])
+
   return (
     <>
       <DotCursor onHero={onHero} />
 
-      {/* SplashCursor canvas: visible only over the hero */}
       <div style={{ opacity: onHero ? 1 : 0, transition: 'opacity 0.4s', pointerEvents: 'none' }}>
         <SplashCursor
           BACK_COLOR={{ r: 0, g: 0, b: 0 }}
@@ -55,11 +65,13 @@ export default function App() {
 
       <main>
         <AboutSection />
-        <ExperienceSection />
+        <ExperienceSection onOpenNykredit={() => setNykreditOpen(true)} />
         <ProjectsSection />
         <PersonalSection />
         <ContactSection />
       </main>
+
+      {nykreditOpen && <NykreditPage onClose={() => setNykreditOpen(false)} />}
     </>
   )
 }

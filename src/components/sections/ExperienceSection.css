@@ -216,19 +216,19 @@
 
 .nk-slide-text__heading {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+  font-size: clamp(1.6rem, 3vw, 3rem);
   font-weight: 700;
   line-height: 1.1;
   color: #F2F0EF;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45);
-  margin-bottom: clamp(10px, 1.2vw, 18px);
+  margin-bottom: clamp(10px, 1.4vw, 22px);
 }
 
 .nk-slide-text__desc {
   font-family: var(--font-body);
-  font-size: clamp(0.85rem, 0.95vw, 1rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.15rem);
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #F2F0EF;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.5);
   max-width: 40ch;
@@ -272,19 +272,131 @@
   text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
 
+/* ── Nykredit showcase entry button ───────────────────────────── */
+.nk-entry {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #0d1117;
+  display: block;
+  text-align: left;
+  font: inherit;
+  margin-bottom: 0;
+}
+
+.nk-entry__previews {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: 3px;
+}
+
+.nk-entry__preview {
+  flex: 1 1 0;
+  overflow: hidden;
+  transition: flex 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nk-entry:hover .nk-entry__preview { flex: 0.6 1 0; }
+.nk-entry:hover .nk-entry__preview:hover { flex: 2 1 0; }
+
+.nk-entry__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: brightness(0.75) saturate(0.9);
+}
+
+.nk-entry:hover .nk-entry__preview img { filter: brightness(0.85) saturate(1); }
+.nk-entry:hover .nk-entry__preview:hover img { filter: brightness(1) saturate(1.05); transform: scale(1.04); }
+
+.nk-entry__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 14, 0.88) 0%,
+    rgba(10, 10, 14, 0.4)  40%,
+    rgba(10, 10, 14, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+.nk-entry__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: clamp(20px, 3vw, 36px);
+  gap: var(--space-4);
+}
+
+.nk-entry__left { display: flex; flex-direction: column; gap: 6px; }
+
+.nk-entry__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  filter: brightness(1.2);
+}
+
+.nk-entry__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  color: #F2F0EF;
+  line-height: 1.1;
+}
+
+.nk-entry__cta {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 500;
+  color: #F2F0EF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity 0.2s, letter-spacing 0.3s;
+}
+
+.nk-entry:hover .nk-entry__cta {
+  opacity: 1;
+  letter-spacing: 0.18em;
+}
+
 /* ── Mobile ──────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .exp-header { flex-direction: column; gap: var(--space-1); }
   .nk-gallery { width: 100vw; margin-left: calc(-1 * var(--space-3)); }
 
-  /* On touch devices the hover trigger never fires, so show every slide
-     fully expanded with its description visible by default. */
   .nk-gallery__frame { height: calc(100vw / 2.957); }
   .nk-gallery__slide { opacity: 1; }
   .nk-slide-text { opacity: 1; width: 50%; padding: 16px 14px; }
-  .nk-slide-text__heading { font-size: clamp(1rem, 4.2vw, 1.3rem); margin-bottom: 6px; }
-  .nk-slide-text__desc    { font-size: clamp(0.65rem, 2.6vw, 0.78rem); line-height: 1.45; }
+  .nk-slide-text__heading { font-size: clamp(1.1rem, 4.8vw, 1.5rem); margin-bottom: 8px; }
+  .nk-slide-text__desc    { font-size: clamp(0.7rem, 2.8vw, 0.85rem); line-height: 1.5; }
 
   .exp-previous__item { grid-template-columns: 1fr; gap: 4px; }
   .exp-previous__period { padding-top: 0; }
+
+  .nk-entry { min-height: 200px; }
+  .nk-entry__title { font-size: 1.3rem; }
+  .nk-entry__preview:hover { flex: 1 1 0 !important; }
 }

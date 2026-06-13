@@ -50,12 +50,12 @@ const SKILLS = [
   },
   {
     category: '3D & Spatial',
-    items: ['3D modelling', 'Sculpting', 'Architectural design', 'Game environments'],
+    items: ['3D modelling', 'Sculpting', 'Game environments'],
     description: 'Building in three dimensions, from digital sculpting in Nomad to environments in Blender and Unity.',
   },
   {
     category: 'Concept & Strategy',
-    items: ['Concept development', 'Ideation', 'Design thinking', 'Sustainability design'],
+    items: ['Concept development', 'Ideation', 'Design thinking'],
     description: 'Developing ideas from brief to concept, with a focus on purpose, context, and the bigger picture.',
   },
 ]

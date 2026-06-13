@@ -12,7 +12,7 @@
 
 /* Project cards are taller than Nykredit slides — more dramatic presence */
 .proj-gallery__card .nk-gallery__frame {
-  height: 220px;
+  height: 300px;
 }
 
 .proj-gallery__card:hover .nk-gallery__frame {

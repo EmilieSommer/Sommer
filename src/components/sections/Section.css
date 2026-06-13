@@ -1,7 +1,7 @@
 .content-section {
   min-height: 100vh;
-  padding: var(--space-16) var(--space-8);
-  padding-right: 120px; /* clear the fixed side nav */
+  padding: var(--space-16) clamp(var(--space-3), 5vw, var(--space-8));
+  padding-right: clamp(60px, 8vw, 120px);
   display: flex;
   align-items: center;
 }
@@ -64,6 +64,7 @@
 @media (max-width: 768px) {
   .content-section {
     padding: var(--space-12) var(--space-3);
+    padding-right: 48px;
   }
   .section__heading {
     font-size: var(--size-3xl);
