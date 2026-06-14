@@ -6,5 +6,5 @@ dist
 Portfolio_Materials/
 PDF document*.pdf
 
-# Claude Code local settings
-.claude/settings.local.json
+# Local editor/tooling config — keep on disk, out of the repo
+.claude/
