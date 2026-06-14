@@ -1,0 +1,18 @@
+[
+  { "id": "ikea",          "title": "Assembly Manual", "category": "Editorial",      "src": "assets/personal/editorial_ikea.png" },
+  { "id": "three-faces",   "title": "Three Faces",     "category": "Portrait",       "src": "assets/personal/art_three_faces.png" },
+  { "id": "self-portrait", "title": "Self Portrait",   "category": "3D render",      "src": "assets/personal/render_self.png" },
+  { "id": "city-sunset",   "title": "City at Sunset",  "category": "Mixed media",    "src": "assets/personal/art_city_sunset.png" },
+  { "id": "studio",        "title": "Product Studio",  "category": "3D render",      "src": "assets/personal/render_studio.png" },
+  { "id": "action",        "title": "Action",          "category": "Mixed media",    "src": "assets/personal/art_action.png" },
+  { "id": "algae",         "title": "Algae Cups",      "category": "Product design", "src": "assets/personal/concept_algae.png" },
+  { "id": "floating",      "title": "Floating",        "category": "3D render",      "src": "assets/personal/render_floating.png" },
+  { "id": "plastycycle",   "title": "Plastycycle",     "category": "Concept design", "src": "assets/personal/concept_plastycycle.png" },
+  { "id": "warm-strokes",  "title": "Warm Strokes",    "category": "Painting",       "src": "assets/personal/art_warm_strokes.png" },
+  { "id": "insect-park",   "title": "Insect Park",     "category": "Concept design", "src": "assets/personal/concept_insect.png" },
+  { "id": "bubbles",       "title": "Bubble Room",     "category": "3D render",      "src": "assets/personal/render_bubbles.png" },
+  { "id": "pink-haze",     "title": "Pink Haze",       "category": "Mixed media",    "src": "assets/personal/art_pink_haze.png" },
+  { "id": "communal",      "title": "Communal Food",   "category": "Concept design", "src": "assets/personal/concept_communal.png" },
+  { "id": "octopus",       "title": "Mug Companion",   "category": "3D sculpt",      "src": "assets/personal/render_octopus.png" },
+  { "id": "solo-food",     "title": "Solo Food Box",   "category": "Product design", "src": "assets/personal/concept_solo_food.png" }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "sommer-portfolio-server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Express API serving project and personal-works data for the Sommer portfolio",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

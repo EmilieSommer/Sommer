@@ -1,32 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Lightbox from '../Lightbox'
 import './Section.css'
 import './PersonalSection.css'
+// Bundled fallback for when the API is unavailable (static GitHub Pages build).
+import personalData from '../../../server/data/personal.json'
 
 const BASE = import.meta.env.BASE_URL
-const P = `${BASE}assets/personal/`
 
-const PERSONAL_WORKS = [
-  { id: 'ikea',           title: 'Assembly Manual',   category: 'Editorial',      src: `${P}editorial_ikea.png` },
-  { id: 'three-faces',    title: 'Three Faces',       category: 'Portrait',       src: `${P}art_three_faces.png` },
-  { id: 'self-portrait',  title: 'Self Portrait',     category: '3D render',      src: `${P}render_self.png` },
-  { id: 'city-sunset',    title: 'City at Sunset',    category: 'Mixed media',    src: `${P}art_city_sunset.png` },
-  { id: 'studio',         title: 'Product Studio',    category: '3D render',      src: `${P}render_studio.png` },
-  { id: 'action',         title: 'Action',            category: 'Mixed media',    src: `${P}art_action.png` },
-  { id: 'algae',          title: 'Algae Cups',        category: 'Product design', src: `${P}concept_algae.png` },
-  { id: 'floating',       title: 'Floating',          category: '3D render',      src: `${P}render_floating.png` },
-  { id: 'plastycycle',    title: 'Plastycycle',       category: 'Concept design', src: `${P}concept_plastycycle.png` },
-  { id: 'warm-strokes',   title: 'Warm Strokes',      category: 'Painting',       src: `${P}art_warm_strokes.png` },
-  { id: 'insect-park',    title: 'Insect Park',       category: 'Concept design', src: `${P}concept_insect.png` },
-  { id: 'bubbles',        title: 'Bubble Room',       category: '3D render',      src: `${P}render_bubbles.png` },
-  { id: 'pink-haze',      title: 'Pink Haze',         category: 'Mixed media',    src: `${P}art_pink_haze.png` },
-  { id: 'communal',       title: 'Communal Food',     category: 'Concept design', src: `${P}concept_communal.png` },
-  { id: 'octopus',        title: 'Mug Companion',     category: '3D sculpt',      src: `${P}render_octopus.png` },
-  { id: 'solo-food',      title: 'Solo Food Box',     category: 'Product design', src: `${P}concept_solo_food.png` },
-]
+// Stored paths are relative ("assets/personal/x.png"); prepend the base URL.
+const resolveWork = (work) => ({ ...work, src: `${BASE}${work.src}` })
 
 export default function PersonalSection() {
+  const [works, setWorks] = useState(() => personalData.map(resolveWork))
   const [lightboxIndex, setLightboxIndex] = useState(null)
+
+  useEffect(() => {
+    let cancelled = false
+    fetch('/api/personal')
+      .then((res) => {
+        if (!res.ok) throw new Error(`API responded ${res.status}`)
+        return res.json()
+      })
+      .then((data) => { if (!cancelled) setWorks(data.map(resolveWork)) })
+      .catch(() => { /* keep the bundled fallback data */ })
+    return () => { cancelled = true }
+  }, [])
 
   return (
     <section className="content-section" id="personal">
@@ -36,7 +34,7 @@ export default function PersonalSection() {
         <p className="section__meta">Paintings · mixed media · 3D renders · concept experiments</p>
 
         <div className="personal-grid">
-          {PERSONAL_WORKS.map((work, i) => (
+          {works.map((work, i) => (
             <button
               key={work.id}
               className="personal-card"
@@ -55,7 +53,7 @@ export default function PersonalSection() {
 
       {lightboxIndex !== null && (
         <Lightbox
-          images={PERSONAL_WORKS.map(w => ({ src: w.src, alt: w.title }))}
+          images={works.map(w => ({ src: w.src, alt: w.title }))}
           startIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
         />

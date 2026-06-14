@@ -1,0 +1,96 @@
+[
+  {
+    "id": "liv",
+    "title": "Liv",
+    "tags": ["Serious Game", "Mental Health", "Research"],
+    "color": "#D95122",
+    "video": "assets/projects/liv_bg.mp4",
+    "sound": "assets/projects/liv_sound.mp3",
+    "expansionVideo": "assets/projects/liv_dream.mp4",
+    "expansion": "assets/projects/expansions/liv.png",
+    "images": [
+      { "src": "assets/projects/liv_dream.mp4", "alt": "Liv - Dream", "isVideo": true },
+      { "src": "assets/projects/liv_1.png", "alt": "Liv - Bathroom" },
+      { "src": "assets/projects/liv_2.png", "alt": "Liv - Bedroom" },
+      { "src": "assets/projects/liv_3.png", "alt": "Liv - Kitchen" },
+      { "src": "assets/projects/liv_4.png", "alt": "Liv - Friend" },
+      { "src": "assets/projects/liv_5.png", "alt": "Liv - Living room" }
+    ],
+    "description": "Liv is a serious game I designed to help relatives support someone they love through a suicidal crisis. I built it in close collaboration with three mental health ambassadors who have lived through these crises themselves, so every conversation in the game would feel honest to both the people in distress and the people around them. The game was published alongside an academic study because it showed a new way to use interactive design as empathy training, taking mental health research out of journals and into a tool that families can actually use. It is the project I am proudest of."
+  },
+  {
+    "id": "torsken",
+    "title": "Oxygen depletion",
+    "tags": ["Game Design", "Education", "Environment"],
+    "color": "#2B4C7E",
+    "video": "assets/projects/torsken_bg.mp4",
+    "sound": "assets/projects/torsken_sound.mp3",
+    "expansion": "assets/projects/expansions/torsken.png",
+    "images": [],
+    "description": "Dive into an environmental rescue mission designed to teach 9-year-olds about the critical state of our oceans. When a friendly fish suddenly finds himself struggling to breathe, young players must step in to investigate why his underwater home is suffocating. By exploring the vibrant but threatened Danish waters, kids uncover the real-world causes of oxygen depletion, transforming complex science into an interactive, empathetic lesson on saving our marine ecosystems."
+  },
+  {
+    "id": "floop",
+    "title": "Floop",
+    "tags": ["VR", "Sound Design", "Music Therapy"],
+    "color": "#896645",
+    "video": "assets/projects/floop_bg.mp4",
+    "expansion": "assets/projects/expansions/floop.png",
+    "images": [
+      { "src": "assets/projects/floop_1.jpg", "alt": "Floop - screenshot 1" },
+      { "src": "assets/projects/floop_2.jpg", "alt": "Floop - screenshot 2" },
+      { "src": "assets/projects/floop_3.jpg", "alt": "Floop - screenshot 3" },
+      { "src": "assets/projects/floop_4.jpg", "alt": "Floop - screenshot 4" }
+    ],
+    "description": "Escape to a place of pure serenity in this immersive VR experience. Developed in close collaboration with a professional music therapist, Floop wraps players in a responsive, therapeutic musical landscape designed to induce deep relaxation. This innovative blend of sound design and spatial audio was successfully showcased as an interactive installation at both Roskilde Festival and SPOT Festival."
+  },
+  {
+    "id": "asymetric",
+    "title": "Asymetric Cinema",
+    "tags": ["VR", "Multiplayer", "Narrative"],
+    "color": "#1a3a2a",
+    "video": "assets/projects/asymetric_bg.mp4",
+    "expansion": "assets/projects/expansions/asymetric.png",
+    "images": [
+      { "src": "assets/projects/asymetric_1.jpg", "alt": "Asymetric Cinema - screenshot" }
+    ],
+    "description": "In this collaborative VR murder mystery, two players stand in the exact same cottage but are fractured across time. One player witnesses the unsettling events leading up to a fatal crime, while the other navigates the cold reality of the subsequent investigation. Trapped in separate eras, you must actively talk, share what you see, and piece together the clues to catch the killer."
+  },
+  {
+    "id": "veil",
+    "title": "Veil of Fear",
+    "tags": ["VR", "Horror", "Eye-tracking"],
+    "color": "#1a1a2e",
+    "video": "assets/projects/veil_bg.mp4",
+    "expansion": "assets/projects/expansions/veil.png",
+    "images": [
+      { "src": "assets/projects/veil_1.jpg", "alt": "Veil of Fear - screenshot" }
+    ],
+    "description": "In this immersive psychological horror game, integrated eye-tracking technology forces you to physically close your eyes to survive the monster's presence, turning your own vision into a liability. As you navigate the mansion's descent into a surreal asylum, you must search cramped cells for a missing person while your character's grip on reality visibly fractures."
+  },
+  {
+    "id": "butworse",
+    "title": "But Worse",
+    "tags": ["Rapid Prototype", "Game Design"],
+    "color": "#3D2B1F",
+    "video": "assets/projects/butworse_bg.mp4",
+    "videoScale": 1.5,
+    "images": [
+      { "src": "assets/projects/butworse_1.jpg", "alt": "But Worse - screenshot" }
+    ],
+    "description": "A raw, rapid-prototyping mini-project born from a challenge to replicate an existing commercial game from scratch. Built from the ground up in just one week, a little replica of a home design game."
+  },
+  {
+    "id": "deathrun",
+    "title": "Deathrun",
+    "tags": ["VR", "Multiplayer", "Asymmetric Gameplay"],
+    "color": "#A33D17",
+    "video": null,
+    "bgImage": "assets/projects/deathrun_bg.png",
+    "expansion": "assets/projects/expansions/deathrun.png",
+    "images": [
+      { "src": "assets/projects/deathrun_1.png", "alt": "Deathrun - screenshot" }
+    ],
+    "description": "A fast-paced multiplayer mini-project designed to push the boundaries of asymmetric gameplay. Deathrun explores a tense virtual duality, pitting a crowd of traditional online PC players against a single, heavily empowered user in VR. The project serves as a technical testbed for real-time cross-platform synchronisation, forcing two completely different perspectives into the same digital arena."
+  }
+]
