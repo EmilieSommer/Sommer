@@ -1,12 +1,12 @@
 # hi.
 
+I'm Emilie Sommer
+
 This is my portfolio site.
 
 → **[emiliesommer.github.io/Sommer](https://emiliesommer.github.io/Sommer/)**
 
-I'm Emilie Sommer
 
-The site is my portfolio
 
 ---
 
