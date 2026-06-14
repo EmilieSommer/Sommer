@@ -152,6 +152,7 @@
   inset: 0;
   z-index: 300;
   overflow-y: auto;
+  overscroll-behavior: contain;
   scrollbar-width: none;
   animation: fs-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -315,8 +316,8 @@
   display: block;
   width: 100%;
   height: auto;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
 }
 
 /* ── Mobile ──────────────────────────────────────────────────── */
