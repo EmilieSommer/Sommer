@@ -7,6 +7,10 @@ This is my portfolio site.
 → **[emiliesommer.github.io/Sommer](https://emiliesommer.github.io/Sommer/)**
 
 
+<<<<<<< Updated upstream
+=======
+The site is my portfolio
+>>>>>>> Stashed changes
 
 ---
 

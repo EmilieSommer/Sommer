@@ -10,8 +10,6 @@ import PersonalSection from './components/sections/PersonalSection'
 import ContactSection from './components/sections/ContactSection'
 import NykreditPage from './components/sections/NykreditPage'
 
-export const ANIMATIONS_ENABLED = false
-
 export default function App() {
   const [onHero, setOnHero] = useState(true)
   const [nykreditOpen, setNykreditOpen] = useState(false)
