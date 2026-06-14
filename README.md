@@ -4,9 +4,9 @@ This is my portfolio site.
 
 → **[emiliesommer.github.io/Sommer](https://emiliesommer.github.io/Sommer/)**
 
-I'm Emilie Sommer — a designer and Medialogi student based in Copenhagen. I design websites, apps, brand systems, and the occasional VR world.
+I'm Emilie Sommer
 
-The site is half portfolio, half experiment: an attempt at making the design process itself part of the experience. Built with React, Vite, and GSAP — intentionally a little playful around the edges.
+The site is my portfolio
 
 ---
 
